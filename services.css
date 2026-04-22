@@ -1,0 +1,92 @@
+/* ============================================================
+   SERVICES.CSS — Services page styles only
+   ============================================================ */
+
+/* ── SERVICES GRID ──────────────────────────────────────────── */
+.services-section { padding:80px 6%; }
+
+.services-grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:22px;
+}
+
+/* ── SERVICE CARD ───────────────────────────────────────────── */
+.svc-card {
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:var(--r-lg);
+  padding:44px 40px;
+  position:relative; overflow:hidden;
+  transition:var(--t-slow);
+  opacity:0; transform:translateY(30px);
+}
+.svc-card:hover {
+  transform:translateY(-6px) !important;
+  border-color:var(--border-gold);
+  box-shadow:var(--sh-gold);
+}
+.svc-card-icon-wrap {
+  width:56px; height:56px; border-radius:16px;
+  background:var(--bg-warm); border:1px solid var(--border);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.5rem; margin-bottom:24px;
+  transition:var(--t-spring);
+}
+.svc-card:hover .svc-card-icon-wrap {
+  background:var(--gold); border-color:var(--gold);
+  transform:scale(1.1) rotate(-6deg);
+}
+.svc-card h3 {
+  font-size:1.14rem; font-weight:600;
+  color:var(--ink); margin-bottom:12px; letter-spacing:-.3px;
+}
+.svc-card p {
+  font-size:.87rem; color:var(--ink-3);
+  line-height:1.8; margin-bottom:20px;
+}
+.svc-tags { display:flex; flex-wrap:wrap; gap:8px; }
+.svc-tag {
+  font-size:.68rem; color:var(--green);
+  background:var(--green-dim);
+  border:1px solid rgba(45,90,61,.18);
+  padding:3px 10px; border-radius:var(--r-full); font-weight:500;
+}
+
+/* ── PROCESS ────────────────────────────────────────────────── */
+.process-wrap { margin-top:100px; }
+.process-grid {
+  display:grid; grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--border); border-radius:var(--r-xl);
+  overflow:hidden; margin-top:48px;
+}
+.p-step {
+  padding:44px 34px; border-right:1px solid var(--border);
+  background:var(--bg-card); transition:var(--t-mid);
+}
+.p-step:last-child { border-right:none; }
+.p-step:hover { background:var(--bg-warm); }
+.p-step-num {
+  font-family:'Cormorant Garamond',serif;
+  font-size:3.5rem; font-weight:700;
+  color:rgba(30,28,24,.12); line-height:1;
+  margin-bottom:16px; transition:var(--t-mid);
+}
+.p-step:hover .p-step-num { color:var(--gold); }
+.p-step h4 { font-size:1rem; font-weight:600; margin-bottom:8px; }
+.p-step p  { font-size:.82rem; color:var(--ink-3); line-height:1.7; }
+
+/* ── RESPONSIVE SERVICES ────────────────────────────────────── */
+@media(max-width:1000px) {
+  .process-grid { grid-template-columns:1fr 1fr; }
+  .p-step:nth-child(2){ border-right:none; }
+  .p-step:nth-child(1),.p-step:nth-child(2){ border-bottom:1px solid var(--border); }
+}
+@media(max-width:768px) {
+  .services-section { padding:60px 5%; }
+  .services-grid { grid-template-columns:1fr; gap:16px; }
+  .process-grid { grid-template-columns:1fr; }
+  .p-step { border-right:none; border-bottom:1px solid var(--border); }
+  .p-step:last-child { border-bottom:none; }
+  .svc-card { padding:34px 28px; }
+}

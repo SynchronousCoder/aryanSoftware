@@ -1,0 +1,159 @@
+/* ============================================================
+   CONTACT.CSS — Contact page styles only
+   ============================================================ */
+
+/* ── CONTACT SPLIT ──────────────────────────────────────────── */
+.contact-section { padding:80px 6% 120px; }
+.contact-split {
+  display:grid; grid-template-columns:1fr 1.55fr;
+  gap:80px; align-items:start;
+}
+
+/* ── LEFT: Info ─────────────────────────────────────────────── */
+.contact-info h2 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.2rem,4vw,3.2rem);
+  font-weight:700; letter-spacing:-1px;
+  line-height:1.15; margin-bottom:20px; color:var(--ink);
+}
+.contact-info h2 em { font-style:italic; color:var(--gold); }
+.contact-info > .lead {
+  font-size:.93rem; color:var(--ink-3);
+  line-height:1.85; margin-bottom:40px;
+}
+.contact-detail {
+  display:flex; gap:16px;
+  align-items:flex-start; margin-bottom:22px;
+}
+.cd-icon {
+  width:44px; height:44px;
+  border:1px solid var(--border); border-radius:12px;
+  background:var(--bg-warm); display:flex;
+  align-items:center; justify-content:center;
+  font-size:1rem; flex-shrink:0; transition:var(--t-mid);
+}
+.contact-detail:hover .cd-icon { background:var(--gold); border-color:var(--gold); }
+.cd-label {
+  font-family:'DM Mono',monospace; font-size:.6rem;
+  letter-spacing:2px; text-transform:uppercase;
+  color:var(--ink-4); margin-bottom:3px;
+}
+.cd-val { font-size:.93rem; color:var(--ink); font-weight:500; }
+.cd-val a { color:var(--ink); transition:color .3s; }
+.cd-val a:hover { color:var(--gold); }
+
+/* quick links */
+.contact-quick-links { padding-top:12px; border-top:1px solid var(--border); }
+.contact-quick-links .ql-label {
+  font-family:'DM Mono',monospace; font-size:.6rem;
+  letter-spacing:2px; text-transform:uppercase;
+  color:var(--ink-4); margin-bottom:14px;
+}
+.ql-chips { display:flex; flex-wrap:wrap; gap:10px; }
+.ql-chip {
+  font-size:.78rem; color:var(--ink-3);
+  background:var(--bg-warm); border:1px solid var(--border);
+  padding:7px 16px; border-radius:var(--r-full);
+  transition:var(--t-mid);
+}
+.ql-chip:hover { border-color:var(--border-gold); color:var(--gold); }
+
+/* ── RIGHT: Form box ────────────────────────────────────────── */
+.contact-form-box {
+  background:var(--bg-card); border:1px solid var(--border);
+  border-radius:var(--r-xl); padding:52px 48px;
+  box-shadow:var(--sh-lg);
+}
+.contact-form-box h3 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.7rem; font-weight:700;
+  letter-spacing:-.5px; margin-bottom:8px; color:var(--ink);
+}
+.contact-form-box .form-intro {
+  font-size:.88rem; color:var(--ink-3); margin-bottom:36px;
+}
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.form-grp { position:relative; margin-bottom:22px; }
+.form-lbl {
+  display:block; font-family:'DM Mono',monospace;
+  font-size:.6rem; letter-spacing:2px;
+  text-transform:uppercase; color:var(--ink-4);
+  margin-bottom:8px; transition:color .3s;
+}
+.form-grp:focus-within .form-lbl { color:var(--gold); }
+.form-inp, .form-ta {
+  width:100%; background:var(--bg-warm);
+  border:1.5px solid var(--border); border-radius:var(--r-md);
+  padding:14px 18px; font-family:'DM Sans',sans-serif;
+  font-size:.9rem; color:var(--ink); outline:none;
+  transition:var(--t-mid); -webkit-appearance:none;
+}
+.form-inp:focus, .form-ta:focus {
+  border-color:var(--gold); background:var(--bg-card);
+  box-shadow:0 0 0 4px var(--gold-dim);
+}
+.form-inp::placeholder, .form-ta::placeholder { color:var(--ink-4); }
+.form-inp.error { border-color:#C83C3C; box-shadow:0 0 0 4px rgba(200,60,60,.08); }
+.form-ta { min-height:140px; resize:vertical; }
+
+/* checkbox */
+.form-check-wrap { display:flex; align-items:flex-start; gap:12px; margin-bottom:28px; }
+.form-check { width:18px; height:18px; accent-color:var(--gold); flex-shrink:0; margin-top:2px; cursor:pointer; }
+.form-check-lbl { font-size:.82rem; color:var(--ink-3); line-height:1.6; }
+.form-check-lbl a { color:var(--gold); text-decoration:underline; }
+
+/* submit */
+.form-submit-btn {
+  width:100%; padding:17px; font-size:.93rem;
+  background:var(--gold); color:#fff; border:none;
+  border-radius:var(--r-full); cursor:pointer;
+  transition:var(--t-mid); font-family:'DM Sans',sans-serif;
+  font-weight:500; display:inline-flex;
+  align-items:center; justify-content:center; gap:10px;
+}
+.form-submit-btn:hover { transform:translateY(-2px); box-shadow:0 12px 36px rgba(184,151,90,.4); }
+.form-submit-btn.loading { pointer-events:none; opacity:.8; }
+.spin {
+  width:18px; height:18px;
+  border:2px solid rgba(255,255,255,.3);
+  border-top-color:#fff; border-radius:50%;
+  animation:spin .7s linear infinite; display:none;
+}
+.form-submit-btn.loading .spin { display:block; }
+.form-submit-btn.loading .btn-label { display:none; }
+@keyframes spin { to { transform:rotate(360deg); } }
+
+.form-success {
+  display:none; background:var(--green-dim);
+  border:1px solid rgba(45,90,61,.22);
+  border-radius:var(--r-md); padding:20px 24px;
+  text-align:center; color:var(--green);
+  font-weight:500; margin-top:16px; font-size:.9rem;
+}
+
+/* ── FAQ ────────────────────────────────────────────────────── */
+.faq-section { padding:80px 6%; background:var(--bg-warm); }
+.faq-grid {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:18px; margin-top:56px;
+}
+.faq-item {
+  background:var(--bg-card); border:1px solid var(--border);
+  border-radius:var(--r-lg); padding:28px;
+  transition:var(--t-mid);
+}
+.faq-item:hover { border-color:var(--border-gold); }
+.faq-item h4 { font-size:.95rem; font-weight:600; margin-bottom:10px; color:var(--ink); }
+.faq-item p  { font-size:.83rem; color:var(--ink-3); line-height:1.75; }
+
+/* ── RESPONSIVE CONTACT ─────────────────────────────────────── */
+@media(max-width:1100px) {
+  .contact-split { grid-template-columns:1fr; gap:48px; }
+}
+@media(max-width:768px) {
+  .contact-section  { padding:60px 5% 80px; }
+  .faq-section      { padding:60px 5%; }
+  .contact-form-box { padding:36px 24px; }
+  .form-row         { grid-template-columns:1fr; }
+  .faq-grid         { grid-template-columns:1fr; }
+}

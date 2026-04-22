@@ -1,0 +1,119 @@
+/* ============================================================
+   PRODUCTS.CSS — Products page styles only
+   ============================================================ */
+
+/* ── PRODUCTS GRID ──────────────────────────────────────────── */
+.products-section { padding:80px 6% 120px; }
+
+.products-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+
+/* ── PRODUCT CARD ───────────────────────────────────────────── */
+.p-card {
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:var(--r-lg);
+  padding:36px 32px;
+  position:relative;
+  overflow:hidden;
+  transition:var(--t-slow);
+  cursor:default;
+  opacity:0;
+  transform:translateY(40px);
+  will-change:transform,opacity;
+}
+
+/* accent bottom bar */
+.p-card::after {
+  content:''; position:absolute;
+  bottom:0; left:0; right:0; height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-lt));
+  transform:scaleX(0); transform-origin:left;
+  transition:transform .4s ease;
+}
+.p-card:hover {
+  border-color:var(--border-gold);
+  transform:translateY(-8px) !important;
+  box-shadow:var(--sh-gold);
+}
+.p-card:hover::after { transform:scaleX(1); }
+
+/* card number badge — top right */
+.p-card-num {
+  position:absolute; top:22px; right:24px;
+  font-family:'DM Mono',monospace;
+  font-size:.6rem; letter-spacing:2px;
+  color:var(--ink-4);
+}
+
+/* icon */
+.p-card-icon {
+  font-size:2rem; margin-bottom:18px;
+  display:block;
+  transition:var(--t-spring);
+}
+.p-card:hover .p-card-icon { transform:scale(1.2) rotate(-5deg); }
+
+/* heading + desc */
+.p-card h3 {
+  font-size:1.06rem; font-weight:600;
+  color:var(--ink); margin-bottom:10px;
+  line-height:1.4; letter-spacing:-.2px;
+}
+.p-card p {
+  font-size:.84rem; color:var(--ink-3); line-height:1.75;
+  margin-bottom:18px;
+}
+
+/* category chip */
+.p-chip {
+  display:inline-block;
+  font-size:.64rem; font-weight:500;
+  letter-spacing:1.5px; text-transform:uppercase;
+  color:var(--gold); background:var(--gold-dim);
+  border:1px solid var(--border-gold);
+  padding:4px 12px; border-radius:var(--r-full);
+  font-family:'DM Mono',monospace;
+}
+
+/* ── CUSTOM CTA BLOCK ───────────────────────────────────────── */
+.products-cta-block {
+  margin-top:80px; padding:56px 60px;
+  background:var(--bg-warm);
+  border:1px solid var(--border);
+  border-radius:var(--r-xl);
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:40px; align-items:center;
+}
+.products-cta-block h2 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.1rem; font-weight:700;
+  letter-spacing:-1px; line-height:1.2;
+  margin-bottom:10px; color:var(--ink);
+}
+.products-cta-block h2 em { font-style:italic; color:var(--gold); }
+.products-cta-block p {
+  font-size:.9rem; color:var(--ink-3);
+  line-height:1.8; max-width:520px;
+}
+
+/* ── RESPONSIVE PRODUCTS ────────────────────────────────────── */
+@media(max-width:1100px) {
+  .products-grid { grid-template-columns:1fr 1fr; }
+}
+@media(max-width:768px) {
+  .products-section { padding:60px 5% 80px; }
+  .products-grid { grid-template-columns:1fr 1fr; gap:16px; }
+  .products-cta-block {
+    grid-template-columns:1fr; padding:40px 32px;
+    text-align:center;
+  }
+  .products-cta-block h2 { font-size:1.7rem; }
+}
+@media(max-width:520px) {
+  .products-grid { grid-template-columns:1fr; }
+}
